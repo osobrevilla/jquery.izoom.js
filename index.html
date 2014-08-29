@@ -1,0 +1,66 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>iZoom</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="zoom.js"></script>
+
+
+
+<style type="text/css">
+html { height: 100%; width: 100%;}
+body {margin: 0;  background: #eee; width: 100%; height: 100%;}
+
+#wrapper {
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	height: 100%; 
+	width: 100%;
+	left: 0;
+	top:0;
+	background: #aaa;
+}
+
+
+</style>
+<script type="text/javascript">
+
+	
+
+	$(function(){
+
+		var page = $('#picture'),
+			body = $('body'),
+			wrapper = $("#wrapper"),
+			wrapperHeight = wrapper.height();
+
+		page.load(function(){
+			iZoom = new IZoom(wrapper.get(0), {
+				width: this.width,
+				height: this.height
+			});
+		}).attr('src', '1.jpg');
+	 	
+
+		// $(window).resize(function(){
+		// 	page.smoothZoom('resize', {  
+		// 		width:wrapper.width(),
+		// 		height: wrapper.height()
+		// 	});
+
+		// 	page.smoothZoom('Reset');
+		// })
+	});
+
+</script>
+</head>
+<body onload="">
+
+<div id="wrapper">
+	<img id="picture"/>
+</div>
+
+
+</body></html>
